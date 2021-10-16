@@ -3,12 +3,13 @@ import PropTypes from 'prop-types'
 
 import Button from '../../components/Button'
 
+import { ThemeContext } from '../../ThemeContext'
+
 import classes from './styles.module.css'
 
 export const PageOne = (props) => {
   const {
     className,
-    mainColor,
     ...otherProps
   } = props
 
@@ -18,19 +19,26 @@ export const PageOne = (props) => {
       {...otherProps}
     >
       <h1>PageOne</h1>
-      <Button
-        style={{ backgroundColor: mainColor }}
-        onClick={() => alert('PageOne')}
-      >
-        Click me!
-      </Button>
+      <ThemeContext.Consumer>
+        {
+          (theme) => {
+            return (
+              <Button
+                style={{ backgroundColor: theme.mainColor }}
+                onClick={() => alert('PageOne')}
+              >
+                Click me!
+              </Button>
+            )
+          }
+        }
+      </ThemeContext.Consumer>
     </div>
   )
 }
 
 PageOne.propTypes = {
-  className: PropTypes.string,
-  mainColor: PropTypes.string
+  className: PropTypes.string
 }
 
 export default PageOne

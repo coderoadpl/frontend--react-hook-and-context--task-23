@@ -5,19 +5,24 @@ import Button from './components/Button'
 import PageOne from './pages/PageOne'
 import PageTwo from './pages/PageTwo'
 
-// import { theme } from './theme'
+import { theme } from './theme'
+
+const { mainColor } = theme
 
 export const App = () => {
   const [currentPage, setCurrentPage] = React.useState('page-one')
+
   return (
     <div>
       <Button
+        style={{ backgroundColor: mainColor }}
         disabled={currentPage === 'page-one'}
         onClick={() => setCurrentPage(() => 'page-one')}
       >
         Go to PageOne
       </Button>
       <Button
+        style={{ backgroundColor: mainColor }}
         disabled={currentPage === 'page-two'}
         onClick={() => setCurrentPage(() => 'page-two')}
       >
@@ -25,13 +30,17 @@ export const App = () => {
       </Button>
       {
         currentPage === 'page-one' ?
-          <PageOne />
+          <PageOne
+            mainColor={mainColor}
+          />
           :
           null
       }
       {
         currentPage === 'page-two' ?
-          <PageTwo />
+          <PageTwo
+            mainColor={mainColor}
+          />
           :
           null
       }

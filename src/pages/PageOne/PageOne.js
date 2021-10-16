@@ -8,6 +8,7 @@ import classes from './styles.module.css'
 export const PageOne = (props) => {
   const {
     className,
+    mainColor,
     ...otherProps
   } = props
 
@@ -17,13 +18,19 @@ export const PageOne = (props) => {
       {...otherProps}
     >
       <h1>PageOne</h1>
-      <Button onClick={() => alert('PageOne')}>Click me!</Button>
+      <Button
+        style={{ backgroundColor: mainColor }}
+        onClick={() => alert('PageOne')}
+      >
+        Click me!
+      </Button>
     </div>
   )
 }
 
 PageOne.propTypes = {
-  className: PropTypes.string
+  className: PropTypes.string,
+  mainColor: PropTypes.string
 }
 
 export default PageOne

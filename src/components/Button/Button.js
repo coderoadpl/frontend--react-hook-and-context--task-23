@@ -12,7 +12,7 @@ export const Button = (props) => {
     ...otherProps
   } = props
 
-  const theme = React.useContext(ThemeContext)
+  const { theme } = React.useContext(ThemeContext)
 
   return (
     <button

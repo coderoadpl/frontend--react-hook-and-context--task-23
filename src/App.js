@@ -12,10 +12,11 @@ const theme = createTheme('green')
 
 export const App = () => {
   const [currentPage, setCurrentPage] = React.useState('page-one')
+  const [mainColor, setMainColor] = React.useState('green')
 
   return (
     <ThemeContext.Provider
-      value={theme}
+      value={createTheme(mainColor)}
     >
       <div>
         <Button
@@ -31,6 +32,21 @@ export const App = () => {
           onClick={() => setCurrentPage(() => 'page-two')}
         >
           Go to PageTwo
+        </Button>
+        <br />
+        <Button
+          style={{ backgroundColor: theme.mainColor }}
+          disabled={mainColor === 'green'}
+          onClick={() => setMainColor(() => 'green')}
+        >
+          Color green
+        </Button>
+        <Button
+          style={{ backgroundColor: theme.mainColor }}
+          disabled={mainColor === 'yellow'}
+          onClick={() => setMainColor(() => 'yellow')}
+        >
+          Color yellow
         </Button>
         {
           currentPage === 'page-one' ?

@@ -5,6 +5,8 @@ import Button from './components/Button'
 import PageOne from './pages/PageOne'
 import PageTwo from './pages/PageTwo'
 
+// import { theme } from './theme'
+
 export const App = () => {
   const [currentPage, setCurrentPage] = React.useState('page-one')
   return (

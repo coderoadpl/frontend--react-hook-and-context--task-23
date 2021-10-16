@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import Button from '../../components/Button'
+
 import classes from './styles.module.css'
 
 export const PageOne = (props) => {
@@ -15,6 +17,7 @@ export const PageOne = (props) => {
       {...otherProps}
     >
       <h1>PageOne</h1>
+      <Button onClick={() => alert('PageOne')}>Click me!</Button>
     </div>
   )
 }

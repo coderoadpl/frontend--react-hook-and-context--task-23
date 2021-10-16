@@ -13,26 +13,20 @@ export const PageOne = (props) => {
     ...otherProps
   } = props
 
+  const theme = React.useContext(ThemeContext)
+
   return (
     <div
       className={`${classes.root}${className ? ` ${className}` : ''}`}
       {...otherProps}
     >
       <h1>PageOne</h1>
-      <ThemeContext.Consumer>
-        {
-          (theme) => {
-            return (
-              <Button
-                style={{ backgroundColor: theme.mainColor }}
-                onClick={() => alert('PageOne')}
-              >
-                Click me!
-              </Button>
-            )
-          }
-        }
-      </ThemeContext.Consumer>
+      <Button
+        style={{ backgroundColor: theme.mainColor }}
+        onClick={() => alert('PageOne')}
+      >
+        Click me!
+      </Button>
     </div>
   )
 }

@@ -1,3 +1,3 @@
-export const theme = {
-  mainColor: 'red'
-}
+export const createTheme = (mainColor) => ({
+  mainColor: mainColor
+})
